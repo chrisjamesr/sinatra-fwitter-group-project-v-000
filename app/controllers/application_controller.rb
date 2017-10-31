@@ -76,4 +76,9 @@ class ApplicationController < Sinatra::Base
     erb :'/tweets/show_tweet'
   end
 
+  get '/tweets/:id/edit' do
+    @tweet = Tweet.find(params[:id])
+    erb :'/tweets/edit_tweet'
+  end
+
 end
