@@ -68,6 +68,7 @@ class ApplicationController < Sinatra::Base
     new_tweet = params[:content]
     new_tweet.user = user
     new_tweet.save
+    erb :'/tweets/tweets'
   end
 
 end
