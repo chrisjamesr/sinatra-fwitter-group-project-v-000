@@ -85,4 +85,9 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  post 'tweets/:id' do
+    @tweet = Tweet.find(params[:id])
+    erb :'/tweets/show_tweet'
+  end
+
 end
