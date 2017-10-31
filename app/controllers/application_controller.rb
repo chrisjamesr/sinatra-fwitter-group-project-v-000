@@ -14,4 +14,8 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/singup' do
+    erb :'/users/create_user'
+  end
+
 end
