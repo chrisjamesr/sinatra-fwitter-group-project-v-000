@@ -65,6 +65,9 @@ class ApplicationController < Sinatra::Base
 
   post '/tweets' do
     user = User.find_by_id(session[:user_id])
+    new_tweet = params[:content]
+    new_tweet.user = user
+    new_tweet.save
   end
 
 end
