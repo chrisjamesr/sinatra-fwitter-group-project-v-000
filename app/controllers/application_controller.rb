@@ -31,6 +31,8 @@ class ApplicationController < Sinatra::Base
   get '/login' do
     if !session[:user_id]
     erb :'/users/login'
+  else
+    redirect "/tweets"
   end
 
   post '/login' do
