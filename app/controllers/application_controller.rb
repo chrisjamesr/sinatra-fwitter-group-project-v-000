@@ -51,4 +51,12 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  get '/tweets/new' do
+    if !!session[:user_id]
+      erb :'tweets/create_tweet'
+    else
+      redirect "/login"
+    end
+  end
+
 end
