@@ -42,4 +42,8 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  get '/tweets' do
+    
+  end
+
 end
