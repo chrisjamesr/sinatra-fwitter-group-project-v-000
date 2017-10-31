@@ -63,4 +63,8 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  post '/tweets' do 
+    user = User.find_by_id(session[:user_id])
+  end
+
 end
