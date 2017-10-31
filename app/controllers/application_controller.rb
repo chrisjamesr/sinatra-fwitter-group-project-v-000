@@ -90,4 +90,9 @@ class ApplicationController < Sinatra::Base
     erb :'/tweets/show_tweet'
   end
 
+  post 'tweets/:id/delete' do 
+    @tweet = Tweet.find(params[:id])
+    @tweet.delete
+  end
+
 end
