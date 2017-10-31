@@ -43,7 +43,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/tweets' do
-    
+    @tweets = Tweet.all
   end
 
 end
