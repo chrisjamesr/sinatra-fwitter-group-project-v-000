@@ -23,7 +23,7 @@ class ApplicationController < Sinatra::Base
     if user.username != "" && user.email != "" && user.password != "" && user.save
       redirect "/tweets"
     else
-      redirect "/failure"
+      redirect "/signup"
     end
   end
 
