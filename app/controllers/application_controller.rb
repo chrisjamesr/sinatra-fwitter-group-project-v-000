@@ -29,6 +29,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/login' do
+    if !session[:user_id]
     erb :'/users/login'
   end
 
