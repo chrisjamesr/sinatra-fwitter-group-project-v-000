@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :ndex
+    erb :index
   end
 
 end
