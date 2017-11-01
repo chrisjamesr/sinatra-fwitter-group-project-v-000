@@ -36,11 +36,6 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-   get "/logout" do
-    session.clear
-    redirect "/"
-  end
-
   post '/login' do
     user = User.find_by(:username => params[:username])
     if user && user.authenticate(params[:password])
@@ -95,23 +90,18 @@ class ApplicationController < Sinatra::Base
     erb :'/tweets/show_tweet'
   end
 
-  post 'tweets/:id/delete' do 
+  post 'tweets/:id/delete' do
     @tweet = Tweet.find(params[:id])
     @tweet.delete
   end
 
-  get "/logout" do
-    session.clear
-    redirect "/"
-  end
-
-  helpers do
-    def logged_in?
-      !!session[:user_id]
-    end
-
-    def current_user
-      User.find(session[:user_id])
+  get '/logout' do
+    if !!session[:id]
+      session.clear
+      redirect "/login"
+    else
+      redirect "/"
     end
   end
+
 end
