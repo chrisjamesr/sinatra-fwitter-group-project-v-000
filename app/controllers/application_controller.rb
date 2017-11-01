@@ -85,19 +85,14 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get "/logout" do
-    session.clear
-    redirect "/"
+  post 'tweets/:id' do
+    @tweet = Tweet.find(params[:id])
+    erb :'/tweets/show_tweet'
   end
 
-  helpers do
-    def logged_in?
-      !!session[:user_id]
-    end
-
-    def current_user
-      User.find(session[:user_id])
-    end
+  post 'tweets/:id/delete' do 
+    @tweet = Tweet.find(params[:id])
+    @tweet.delete
   end
 
 end
